@@ -3,8 +3,8 @@ import {MissionCard} from './MissionCard';
 
 export const MissionsList = props => {
   return (
-    <span>
-      {props.data.map(item => <MissionCard {...item}/>)}
-    </span>
+    <div>
+      {props.data.map(item => <MissionCard {...item} key={item.flight_number}/>)}
+    </div>
   );
 }

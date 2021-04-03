@@ -1,6 +1,7 @@
-let baseUrl='https://api.spacexdata.com/v3/launches?limit=100';
 
 export const getMissions=async (filters = {})=>{
+  debugger;
+  let baseUrl='https://api.spacexdata.com/v3/launches?limit=100';
   const {launchSuccess, landSuccess, launchYear}=filters;
   if(launchSuccess){
     baseUrl=`${baseUrl}&launch_success=true`
