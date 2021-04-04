@@ -18,22 +18,23 @@ export class Content extends React.Component {
         launchYear: null,
       },
       data: [],
+      loading: false
     };
   }
 
   getData=async ()=>{
+    this.setState({loading: true});
     let data=await getMissions(this.state.appliedFilters);
-    this.setState({data});
+    this.setState({data, loading: false});
   }
 
   async componentDidMount() {
     this.getData()
   }
 
-  onSelect=(e, filterName)=>{
-    debugger;
+  onSelect=(_selectedFilter, filterName)=>{
     const appliedFilters={...this.state.appliedFilters};
-    appliedFilters[filterName]=e.target.id;
+    appliedFilters[filterName]=_selectedFilter;
     this.setState({
       appliedFilters
     }, ()=>{
@@ -49,7 +50,9 @@ export class Content extends React.Component {
           appliedFilters={this.state.appliedFilters}
           onSelect={this.onSelect}
         />
-        <MissionsList data={this.state.data}/>
+        { this.state.loading ? <h1>Loading...</h1> :
+          <MissionsList data={this.state.data}/>
+        }
       </>
     );
   }

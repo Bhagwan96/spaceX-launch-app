@@ -10,16 +10,19 @@ const StyledMissionCard=styled.span`
   overflow: hidden;
   width: 200px;
 `
+const BoldText=styled.div`
+  font-weight: bold;
+`;
 
 export const MissionCard=props=>{
   return (
     <StyledMissionCard>
-      <img src='https://www.nasa.gov/sites/default/files/styles/side_image/public/thumbnails/image/artemisi_mobile_launcher.jpg?itok=rBwZ5PqG' height='150' width='100%'/>
+      <img src='https://www.nasa.gov/sites/default/files/styles/side_image/public/thumbnails/image/artemisi_mobile_launcher.jpg?itok=rBwZ5PqG' alt='Rocket image' height='150' width='100%'/>
       <div>{props.mission_name+' #'+props.flight_number}</div>
-      <div>Mission ids: </div>
-      <ul>{props.mission_id.map(i => <li>{i}</li>)}</ul>
-      <div>Launch Year: {props.launch_year}</div>
-      <div>Successful Launch: {String(props.launch_success)}</div>
+      <BoldText>Mission ids: </BoldText>
+      <ul>{props.mission_id.map(i => <li key={i}>{i}</li>)}</ul>
+      <BoldText>Launch Year: {props.launch_year}</BoldText>
+      <BoldText>Successful Launch: {String(props.launch_success)}</BoldText>
     </StyledMissionCard>
   );
 }

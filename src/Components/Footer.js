@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 const StyledFooter=styled.div`
     width: 100%;
-    bottom: 0px;
     text-align: center;
 `;
 

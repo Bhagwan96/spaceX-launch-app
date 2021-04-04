@@ -1,15 +1,13 @@
-
 export const getMissions=async (filters = {})=>{
-  debugger;
   let baseUrl='https://api.spacexdata.com/v3/launches?limit=100';
   const {launchSuccess, landSuccess, launchYear}=filters;
-  if(launchSuccess){
-    baseUrl=`${baseUrl}&launch_success=true`
+  if(launchSuccess !== null){
+    baseUrl=`${baseUrl}&launch_success=${launchSuccess}`
   }
-  if(landSuccess){
-    baseUrl=`${baseUrl}&landSuccess_success=true`
+  if(landSuccess !== null){
+    baseUrl=`${baseUrl}&land_success=${landSuccess}`
   }
-  if(launchYear){
+  if(launchYear !== null){
     baseUrl=`${baseUrl}&launch_year=${launchYear}`
   }
   const resp=await fetch(baseUrl);

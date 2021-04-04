@@ -2,10 +2,11 @@ import React from "react";
 import { FiltersList } from "./FiltersList";
 import styled from "styled-components";
 const StyledFilters = styled.div`
-  max-width: 250px;
+  max-width: 200px;
   min-width: 100px;
   overflow: auto;
   float: left;
+  margin-left: 40px;
 `;
 
 export const Filters = props => {
@@ -19,19 +20,19 @@ export const Filters = props => {
         title={"Launch year"}
         list={years || []}
         selectedFilter={launchYear}
-        onSelect={(e)=>props.onSelect(e, 'launchYear')}
+        onSelect={(_selectedFilter)=>props.onSelect(_selectedFilter, 'launchYear')}
       />
       <FiltersList
         title={"Successful Launch"}
         list={launches || []}
         selectedFilter={launchSuccess}
-        onSelect={(e)=>props.onSelect(e, 'launchSuccess')}
+        onSelect={(_selectedFilter)=>props.onSelect(_selectedFilter, 'launchSuccess')}
       />
       <FiltersList
         title={"Successful Landing"}
         list={landings || []}
         selectedFilter={landSuccess}
-        onSelect={(e)=>props.onSelect(e, 'landSuccess')}
+        onSelect={(_selectedFilter)=>props.onSelect(_selectedFilter, 'landSuccess')}
       />
     </StyledFilters>
   );
